@@ -2,19 +2,19 @@
 let usuario = prompt("Ingrese Nombre de Usuario");
 let clave = prompt ("Ingrese Contraseña");
 
-while (usuario === " ") {
+while (usuario == " ") {
 
-    if (usuario == ""){
+    if (usuario === ""){
         alert("nombre de usuario no valido");
     
     }
-    else if(clave == ""){
+    else if(clave === ""){
         alert("clave incorrecta");
     }
 
     else {
         alert("bienvenido " + usuario);
-    }
+    } 
 
     
     
@@ -62,3 +62,6 @@ const productos1 =[
     }
 
 ];
+    for(const producto of productos1){
+        console.table(productos1);
+    }
