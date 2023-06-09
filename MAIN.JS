@@ -1,5 +1,5 @@
 
-let usuario = prompt("Ingrese Nombre de Usuario");
+/* let usuario = prompt("Ingrese Nombre de Usuario");
 let clave = prompt ("Ingrese Contraseña");
 
 while (usuario == " ") {
@@ -14,11 +14,11 @@ while (usuario == " ") {
 
     else {
         alert("bienvenido " + usuario);
-    } 
+    }  
 
     
     
-}
+}*/
 
 const productos1 =[
     {
@@ -62,6 +62,12 @@ const productos1 =[
     }
 
 ];
-    for(const producto of productos1){
-        console.table(productos1);
-    }
+
+productos1.forEach((element) => {console.table(element);});
+
+   /*  for(const producto of productos1){
+        console.table(producto);
+    } */
+
+    const totalPrecios = productos1.reduce((acumulador,producto)=>acumulador +producto.precio, 0);
+    console.table("el total de los precios es " + totalPrecios);
