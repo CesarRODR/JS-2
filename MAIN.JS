@@ -1,8 +1,8 @@
 
-/* let usuario = prompt("Ingrese Nombre de Usuario");
-let clave = prompt ("Ingrese Contraseña");
+ let usuario = prompt("Ingrese Nombre de Usuario");
+ let clave = prompt ("Ingrese Contraseña");
 
-while (usuario == " ") {
+while (usuario === "") {
 
     if (usuario === ""){
         alert("nombre de usuario no valido");
@@ -15,10 +15,10 @@ while (usuario == " ") {
     else {
         alert("bienvenido " + usuario);
     }  
+    
+    
+}
 
-    
-    
-}*/
 
 const productos1 =[
     {
@@ -63,11 +63,56 @@ const productos1 =[
 
 ];
 
-productos1.forEach((element) => {console.table(element);});
+  //productos1.forEach((element) => {console.log1(element);});
 
-   /*  for(const producto of productos1){
-        console.table(producto);
-    } */
+     for(const producto of productos1){
+        console.log(producto);
+    }
+    
 
-    const totalPrecios = productos1.reduce((acumulador,producto)=>acumulador +producto.precio, 0);
-    console.table("el total de los precios es " + totalPrecios);
+    let buscar = prompt("Ver solo nombre y precio de productos");
+
+    if (buscar === "" ){
+            console.log("producto no seleccionado");
+
+    }else if (buscar !== "") {
+            const nombreYprecio = productos1.map((buscar) =>{
+     
+            return{
+                nombre: buscar.nombre,
+                precio: buscar.precio
+            }    
+});
+            console.table(nombreYprecio,);
+
+    }
+    
+     let total= parseFloat(prompt("ingrese un monto maximo a pagar por los equipos"));
+
+     const precioProductos = productos1.filter((producto) => producto.precio <= total);
+
+     console.table(precioProductos);
+
+     
+
+     const totalPrecios = precioProductos.reduce((acumulador,producto)=>acumulador + producto.precio, 0);
+    console.log("El total de los precios es " + totalPrecios);  
+
+
+
+    
+    
+     //let valorProducto = parseFloat(prompt("Para ver precio final con iva, por favor ingrese el total de los precios en pantalla"));
+     
+    function calacularIva(){
+        let suma = totalPrecios * 1.21;
+        console.log("Precio con IVA es $ " + suma);
+    }
+
+    calacularIva(totalPrecios) 
+
+    
+
+
+     
+    
