@@ -1,26 +1,5 @@
 
- let usuario = prompt("Ingrese Nombre de Usuario");
- let clave = prompt ("Ingrese Contraseña");
-
-while (usuario === "") {
-
-    if (usuario === ""){
-        alert("nombre de usuario no valido");
-    
-    }
-    else if(clave === ""){
-        alert("clave incorrecta");
-    }
-
-    else {
-        alert("bienvenido " + usuario);
-    }  
-    
-    
-}
-
-
-const productos1 =[
+const productos =[
     {
         id:1,
         marca:"HIKVISION",
@@ -63,54 +42,67 @@ const productos1 =[
 
 ];
 
-  //productos1.forEach((element) => {console.log1(element);});
+let usuario = prompt("Ingrese Nombre de Usuario");
+let clave = prompt ("Ingrese Contraseña");
+if(!usuario || !clave){
 
-     for(const producto of productos1){
-        console.log(producto);
+    if (usuario === ""){
+        alert("nombre de usuario no valido");
+    
+    }  
+    if(clave === ""){
+        alert("clave incorrecta");
+    }
+}else {
+    alert("bienvenido " + usuario);
+}
+
+if(usuario && clave){
+ for(const producto of productos){
+        console.table(producto);
     }
     
 
-    let buscar = prompt("Ver solo nombre y precio de productos");
+    let buscar = prompt("Para continuar y ver nombre, precio de productos oprime s-si \n Para finalizar  n-no ");
 
-    if (buscar === "" ){
-            console.log("producto no seleccionado");
+    if (buscar === "n" ){
+            alert("OK adios!!👋");
 
-    }else if (buscar !== "") {
-            const nombreYprecio = productos1.map((buscar) =>{
+    }else if (buscar === "s") {
+            const nombreYprecio = productos.map((buscar) =>{
      
             return{
                 nombre: buscar.nombre,
                 precio: buscar.precio
             }    
-});
+        });
             console.table(nombreYprecio,);
 
-    }
     
-     let total= parseFloat(prompt("ingrese un monto maximo a pagar por los equipos"));
+     let total= parseFloat(prompt("Ingrese un monto maximo a pagar por los equipos"));
 
-     const precioProductos = productos1.filter((producto) => producto.precio <= total);
+     const precioProductos = productos.filter((producto) => producto.precio <= total);
 
-     console.table(precioProductos);
+     console.table(precioProductos); 
 
-     
+
+
 
      const totalPrecios = precioProductos.reduce((acumulador,producto)=>acumulador + producto.precio, 0);
-    console.log("El total de los precios es " + totalPrecios);  
+     console.log("El total de los precios es " + totalPrecios);
+ 
+ 
+     function calacularIva(){
+         let suma = totalPrecios * 1.21;
+         console.log("Precio con IVA es $ " + suma);
+     }
+ 
+     calacularIva(totalPrecios)
 
-
-
-    
-    
-     //let valorProducto = parseFloat(prompt("Para ver precio final con iva, por favor ingrese el total de los precios en pantalla"));
+    };
      
-    function calacularIva(){
-        let suma = totalPrecios * 1.21;
-        console.log("Precio con IVA es $ " + suma);
-    }
-
-    calacularIva(totalPrecios) 
-
+   
+};
     
 
 
